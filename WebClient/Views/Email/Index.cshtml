@@ -1,0 +1,24 @@
+﻿
+@model Common.Models.Email
+
+@{
+    ViewData["Title"] = "Email sending page";
+}
+
+
+@if (TempData["Status"] is not null)
+{
+    <div class="alert alert-success" role="alert">@TempData["Status"]</div>
+}
+
+<br />
+
+<form asp-action="Index" asp-controller="Email" method="post">
+    <p><input type="email" asp-for="Address" placeholder="Введите адрес получателя" /></p>
+    <p><input asp-for="Subject" placeholder="Введите тему письма" /></p>
+    
+    <p> 
+        <textarea asp-for="Message" cols="80" placeholder="Введите сообщение"></textarea>    
+    </p>
+    <input type="submit" />
+</form>
